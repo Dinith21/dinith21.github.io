@@ -1,0 +1,30 @@
+{% extends "layout_full.html" %}
+{% block fullcontent %}
+  {% for post in posts.items %}
+    <div class="col-md-12">
+        <article class="media content-section">
+          <div class="media-body">
+            <h2 class="article-title"><a class="article-title" href="{{ url_for('posts.post', post_id=post.id) }}">{{ post.title }}</a></h2>
+          </div>
+        </article>
+    </div>
+    <div class="col-md-6">
+      <div class="media-body">
+        <article class="media content-section">
+          <div class="media-body">
+            <center class="article-content">{{ post.content1 }}</center>
+          </div>
+        </article>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <article class="media content-section">
+          <div class="media-body">
+            <center class="article-content">{{ post.content2 }}</center>
+          </div>
+        </article>
+    </div>
+  {% endfor %}
+  {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+  {% endfor %}
+{% endblock fullcontent %}

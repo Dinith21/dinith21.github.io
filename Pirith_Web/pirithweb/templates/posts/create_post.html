@@ -1,0 +1,55 @@
+{% extends "layout_12.html" %}
+{% block full %}
+  <div class="content-section">
+    <form action="" method="POST">
+      {{ form.hidden_tag() }}
+      <fieldset class="form-group">
+        <div class="article-metadata">
+          <h1>{{ legend }}</h1>
+        </div>
+        <div class="form-group">
+          {{ form.title.label(class="form-control-label") }}
+          {% if form.title.errors %}
+            {{ form.title(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.title.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.title(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.content1.label(class="form-control-label") }}
+          {% if form.content1.errors %}
+            {{ form.content1(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.content1.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.content1(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+        <div class="form-group">
+          {{ form.content2.label(class="form-control-label") }}
+          {% if form.content2.errors %}
+            {{ form.content2(class="form-control form-control-lg is-invalid") }}
+            <div class="invalid-feedback">
+              {% for error in form.content2.errors %}
+                <span>{{ error }}</span>
+              {% endfor %}
+            </div>
+          {% else %}
+            {{ form.content2(class="form-control form-control-lg") }}
+          {% endif %}
+        </div>
+      </fieldset>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+    </form>
+  </div>
+{% endblock full %}
